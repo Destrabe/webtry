@@ -1,0 +1,27 @@
+body{
+    font-size: 16px;
+    background-image: url("https://th.bing.com/th/id/R.7d91489f29b1daceeaba0ae4c25920d8?rik=0cqJWV61A5CgCg&pid=ImgRaw&r=0");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    width: 100vw;
+    height: 80px;
+}
+
+.boton{
+    background-color: yellow;
+    width: 100vw;
+    /* border:1px solid red; */
+    border-top:25px solid red;
+    border-bottom:25px solid red;
+   
+}
