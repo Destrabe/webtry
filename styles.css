@@ -1,66 +1,88 @@
-body{
-    font-size: 16px;
-    background-image: url("https://th.bing.com/th/id/R.7d91489f29b1daceeaba0ae4c25920d8?rik=0cqJWV61A5CgCg&pid=ImgRaw&r=0");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin:0
-}
-
-
-
-.header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #333;
-    width: 100vw;
-    height: 80px;
-}
-
-button {
-    font-size: 1.5rem;
-    color: #fafafa;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px solid #fafafa;
-    background: #252525;
-    /* box-shadow: 3px 3px #fafafa; */
-    cursor: pointer;
-    margin: 35px 0;
+body {
+    --s: 40px;
+    --b: 18px;
+  
+    height: 100vh;
+    margin: 0;
+    background: #F4EAD5; 
+    overflow: hidden;
   }
   
-  button:active {
-    box-shadow: none;
-    transform: translate(3px, 1px);
-    background-color:white
-    ;color: black;
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(var(--_c, red) 0 0) left -100vw top 50% no-repeat;
+    --_g: calc(-.45 * var(--s)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+    --_s: calc(4 * var(--s)) calc(3 * var(--s));
+    --_r: calc(1.096 * var(--s) + var(--b) / 2);
+    -webkit-mask: 
+      radial-gradient(var(--_r) at left 50% bottom var(--_g))
+      calc(50% - 2 * var(--s)) calc(50% - 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s),
+      radial-gradient(var(--_r) at left 50% top var(--_g)) 
+      50% calc(50% + 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s);
+    mask: 
+      radial-gradient(var(--_r) at left 50% bottom var(--_g))
+      calc(50% - 2 * var(--s)) calc(50% - 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s),
+      radial-gradient(var(--_r) at left 50% top var(--_g)) 
+      50% calc(50% + 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s);
+    animation: back 35s infinite linear;
   }
-
-  button:hover {
-   scale:1.1
+  
+  body::after {
+    --_c: blue;
+    --_o: 3 * var(--s) / 2;
+    animation-direction: reverse;
   }
+  
+  @keyframes back {
+    to {
+      background-position: right -100vw top 50%;
+    }
+  }
+  
 
+/*
+body {
+    margin: 0; 
+    height: 100vh; 
+    background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px);
+    background-size: cover; 
+  }
+*/
 
-.container {
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    --s: 60px;
-    --c1: #180a22;
-    --c2: #5b42f3;
-    --_g: radial-gradient(
-      25% 25% at 25% 25%,
-      var(--c1) 99%,
-      rgba(0, 0, 0, 0) 101%
-    );
-    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
-        calc(2 * var(--s)),
-      var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
-      radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
-        var(--s),
-      repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
-        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
-  }
-  
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    z-index: 10; 
+}
 
-  *{background-color: red;}
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff6347; 
+}
