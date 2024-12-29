@@ -1,88 +1,64 @@
+/* Fondo */
 body {
-    --s: 40px;
-    --b: 18px;
-  
-    height: 100vh;
-    margin: 0;
-    background: #F4EAD5; 
-    overflow: hidden;
-  }
-  
-  body::before,
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(var(--_c, red) 0 0) left -100vw top 50% no-repeat;
-    --_g: calc(-.45 * var(--s)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
-    --_s: calc(4 * var(--s)) calc(3 * var(--s));
-    --_r: calc(1.096 * var(--s) + var(--b) / 2);
-    -webkit-mask: 
-      radial-gradient(var(--_r) at left 50% bottom var(--_g))
-      calc(50% - 2 * var(--s)) calc(50% - 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s),
-      radial-gradient(var(--_r) at left 50% top var(--_g)) 
-      50% calc(50% + 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s);
-    mask: 
-      radial-gradient(var(--_r) at left 50% bottom var(--_g))
-      calc(50% - 2 * var(--s)) calc(50% - 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s),
-      radial-gradient(var(--_r) at left 50% top var(--_g)) 
-      50% calc(50% + 3 * var(--s) / 2 + var(--_o, 0px)) / var(--_s);
-    animation: back 35s infinite linear;
-  }
-  
-  body::after {
-    --_c: blue;
-    --_o: 3 * var(--s) / 2;
-    animation-direction: reverse;
-  }
-  
-  @keyframes back {
-    to {
-      background-position: right -100vw top 50%;
-    }
-  }
-  
+  --s: 40px;
+  --b: 18px;
 
-/*
-body {
-    margin: 0; 
-    height: 100vh; 
-    background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px);
-    background-size: cover; 
-  }
-*/
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px 20px;
-    z-index: 10; 
+  height: 100vh;
+  margin: 0;
+  background: #c0c0c0; /* Fondo gris */
+  overflow: hidden;
 }
 
-header nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Barra superior */
+.top-bar {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
 }
 
-header nav ul li {
-    margin: 0 15px;
+/* Barra principal */
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-header nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease;
+/* Logo */
+.logo p {
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: black; /* Texto negro */
+  margin: 0;
 }
 
-header nav ul li a:hover {
-    color: #ff6347; 
+.logo em {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* Menú de navegación */
+.barra {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.opcion {
+  text-decoration: none;
+  color: black; /* Texto negro */
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Solo animación del color */
+}
+
+.opcion:hover {
+  color: red; /* Cambia el color del texto a rojo al pasar el mouse */
 }
